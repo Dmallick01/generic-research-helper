@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+chroma_db/
+.env
+
+# Node
+node_modules/
+dist/
+.next/
+*.log
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/

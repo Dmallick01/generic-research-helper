@@ -1,0 +1,28 @@
+TITLE: Simplex 4 — SPM Supplementation Strategies: Omega-3 Loading, Aspirin Co-Treatment, and the Resolution Pharmacology Frontier
+
+ABSTRACT:
+If SPM depletion drives resolution failure (Simplex 1), POD (Simplex 2), and logarithmic pain amplification (Simplex 3), then therapeutic SPM restoration becomes the primary intervention target. This paper evaluates evidence for three supplementation strategies: high-dose perioperative omega-3 fatty acid loading, low-dose aspirin co-treatment to redirect COX-2 toward 15-epi-SPM biosynthesis, and direct SPM analog administration. We find that omega-3 loading shows the most clinical feasibility but requires optimization of timing, dose, and EPA:DHA ratio for POD prevention specifically.
+
+INTRODUCTION:
+Resolution pharmacology is an emerging field. Unlike anti-inflammatory drugs, which suppress the immune response globally, resolution-targeted therapies aim to complete the inflammatory program — clearing debris, restoring tissue homeostasis, and preventing chronicity. Simplex 4 maps what is known, what is feasible, and what remains to be tested in perioperative SPM supplementation.
+
+OMEGA-3 LOADING STRATEGY:
+EPA and DHA are SPM precursors. Pre-surgical omega-3 loading increases substrate availability for SPM biosynthesis. Optimal protocol based on current evidence: 4g/day EPA+DHA for 7 days preoperatively. EPA:DHA ratio of 2:1 favors E-series resolvin production (more studied in POD-relevant neuroinflammation). Key limitation: omega-3 loading takes 7+ days to meaningfully increase tissue phospholipid content — not feasible for emergency surgeries.
+
+ASPIRIN CO-TREATMENT:
+Low-dose aspirin acetylates COX-2 at Ser-530. This does not simply inhibit prostaglandin production — it redirects COX-2 toward generating 15R-HETE from arachidonic acid and 18R-HEPE from EPA. These are precursors to 15-epi-lipoxins and 18R-containing resolvins (aspirin-triggered resolvins). Mechanism: aspirin-modified COX-2 + 5-LOX → aspirin-triggered resolvin E1 (AT-RvE1). Clinical consideration: timing matters — aspirin must be given before surgical COX-2 upregulation to redirect rather than suppress.
+
+DIRECT SPM ANALOGS:
+Stable SPM analogs (AT-D1, AT-RvD3) are in preclinical development. Advantages: predictable dosing, no dependence on endogenous biosynthetic capacity. Disadvantages: no human clinical trial data, synthesis complexity, unknown pharmacokinetics in surgical patients. This is a 5–10 year horizon for clinical application.
+
+CONNECTION TO SIMPLEX 3:
+The logarithmic pain model predicts that SPM restoration above the central sensitization threshold should restore near-linear pain processing. Omega-3 loading in the context of POD prevention is therefore also a pre-emptive analgesia strategy — a novel framing not currently in the literature.
+
+GAPS:
+1. No RCT has measured SPM levels as a primary endpoint in perioperative omega-3 trials.
+2. Optimal aspirin dose and timing for AT-resolvin generation in surgical patients is unknown.
+3. Combined omega-3 + aspirin protocols have not been tested for SPM synergy.
+4. Individual variation in omega-3 metabolism (FADS gene polymorphisms) may determine responder status.
+
+CONCLUSION:
+SPM supplementation is feasible and mechanistically justified. Simplex 5 will synthesize the complete Simplex framework into a unified clinical protocol and identify the most critical gaps requiring experimental validation.

@@ -1,0 +1,26 @@
+TITLE: Simplex 5 — Unified Resolution Framework: Toward a Clinical Protocol for SPM-Targeted Perioperative Neuroprotection
+
+ABSTRACT:
+This paper synthesizes the Simplex series (1–4) into a unified resolution biology framework and proposes a clinical protocol for SPM-targeted perioperative neuroprotection. The central thesis: perioperative neuroinflammatory injury — including postoperative delirium, chronic postsurgical pain, and neurocognitive decline — shares a common pathophysiological root in SPM depletion and resolution failure. A multimodal intervention targeting SPM biosynthesis before, during, and after surgery may reduce the incidence and severity of these complications. We identify five priority experimental questions that would validate or refute this framework.
+
+SYNTHESIS OF SIMPLEX 1-4:
+Simplex 1 established: SPMs are active resolution molecules, not passive inflammation endpoints. The SPM triad (resolvins, protectins, maresins) acts through specific receptors (FPR2/ALX, GPR32, LGR6) on innate immune cells and neurons. Simplex 2 established: POD may represent a resolution failure state, not merely excess neuroinflammation. Acetaminophen has underappreciated SPM-pathway interactions via AM404/endocannabinoid mechanisms. Simplex 3 established: SPM depletion amplifies pain logarithmically via dorsal horn disinhibition and central sensitization. The pain gain model explains opioid tolerance and treatment resistance. Simplex 4 established: Omega-3 loading and aspirin co-treatment are feasible SPM supplementation strategies. Optimal timing, dosing, and patient selection remain open questions.
+
+UNIFIED MECHANISTIC MODEL:
+Surgical trauma → (A) pro-inflammatory surge [IL-6, TNF-α, PGE2] AND (B) SPM biosynthesis disruption [substrate competition, COX-2 redirection] → neuroinflammation without resolution capacity → divergent outcomes: (1) POD [Simplex 2], (2) chronic postsurgical pain [Simplex 3], (3) neurocognitive decline [Simplex 5 extension]. The key insight: (A) and (B) are independent targets. Most current therapy addresses only (A). Resolution pharmacology addresses (B).
+
+PROPOSED CLINICAL PROTOCOL — PERIOPERATIVE SPM OPTIMIZATION:
+Preoperative (7 days before): EPA+DHA 4g/day (2:1 ratio). Aspirin 81mg/day (to establish AT-resolvin capacity). Baseline SPM measurement if feasible. Day of surgery: Continue aspirin (timing: >4 hours pre-incision). Avoid COX-2 selective inhibitors perioperatively (block AT-resolvin synthesis). Optimize anesthetic choice: dexmedetomidine has pro-resolving properties vs. standard agents. Postoperative (7 days): Continue omega-3 loading. Monitor for POD using validated scales. If POD develops: consider SPM-targeted rescue (experimental). Pain management: integrate acetaminophen for its AM404/descending inhibition effects.
+
+CRITICAL EXPERIMENTAL GAPS (PRIORITY ORDER):
+1. HIGHEST PRIORITY: Perioperative SPM profiling RCT — measure plasma and CSF levels of RvD1, RvE1, PD1 in POD vs non-POD patients. This single study would validate or refute the core Simplex 2 hypothesis.
+2. HIGH PRIORITY: FADS polymorphism study — does omega-3 metabolism genotype predict SPM supplementation response?
+3. HIGH PRIORITY: Aspirin timing optimization — what is the minimum aspirin pre-treatment window for meaningful AT-resolvin generation?
+4. MEDIUM PRIORITY: Logarithmic pain model parameterization — measure pain scores alongside SPM levels in standardized surgical cohort.
+5. MEDIUM PRIORITY: Animal POD model with SPM measurement — establish causal relationship between SPM depletion and cognitive dysfunction.
+
+CROSS-SERIES CONNECTIONS:
+Simplex 2 ↔ Simplex 3: POD patients have both resolution failure AND logarithmic pain amplification — these are mechanistically linked via shared dorsal horn disinhibition. Simplex 1 ↔ Simplex 4: The SPM triad framework (Simplex 1) directly informs which resolvins to target in supplementation (Simplex 4). Simplex 3 ↔ Simplex 4: SPM restoration above the central sensitization threshold (Simplex 3's prediction) is the mechanistic rationale for preoperative omega-3 loading (Simplex 4).
+
+CONCLUSION:
+The Simplex framework represents a coherent, mechanistically grounded approach to perioperative neuroinflammatory injury. Its validation requires the five experimental studies outlined above. If confirmed, resolution pharmacology would represent a paradigm shift in perioperative medicine — moving from inflammation suppression to resolution completion as the primary therapeutic goal.

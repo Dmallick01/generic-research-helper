@@ -1,0 +1,22 @@
+TITLE: Simplex 1 — Specialized Pro-Resolving Mediators in Neuroinflammation: A Framework for Resolution Biology
+
+ABSTRACT:
+Specialized pro-resolving mediators (SPMs) represent a class of lipid-derived signaling molecules that actively terminate inflammation rather than simply suppressing it. This paper establishes the foundational framework for the Simplex series, arguing that resolution of neuroinflammation is a biosynthetically active, receptor-mediated process. We introduce the SPM triad — resolvins, protectins, and maresins — and map their biosynthetic origins from omega-3 fatty acid precursors (EPA and DHA). The central hypothesis: failure of SPM biosynthesis, rather than excess pro-inflammatory signaling alone, underlies chronic neuroinflammatory conditions.
+
+INTRODUCTION:
+Inflammation resolution has historically been treated as passive — the mere cessation of pro-inflammatory signals. This view is fundamentally incomplete. Active resolution involves coordinated lipid mediator class switching, from pro-inflammatory eicosanoids (prostaglandins, leukotrienes) to pro-resolving lipoxins, resolvins, protectins, and maresins. This series (Simplex 1–5) will build a unified mechanistic model linking SPM biology to clinical outcomes including postoperative delirium, chronic pain, and neurodegeneration.
+
+MECHANISMS:
+Resolvin D1 (RvD1) is biosynthesized from DHA via sequential 15-LOX and 5-LOX activity, producing 17-HDHA as an intermediate. RvD1 binds FPR2/ALX receptors on neutrophils, macrophages, and microglia, triggering: (1) halt of further neutrophil infiltration, (2) enhancement of efferocytosis, (3) suppression of NF-κB signaling without immunosuppression. Resolvin E1 (RvE1) follows the EPA pathway via aspirin-modified COX-2, demonstrating that anti-inflammatory drugs can redirect rather than simply block lipid mediator biosynthesis.
+
+SPM TRIAD:
+Resolvins (D-series from DHA, E-series from EPA): primary mediators of neutrophil clearance and macrophage reprogramming. Protectin D1 (PD1/NPD1): neuroprotective; inhibits T cell migration; critical in retinal and brain tissue. Maresins (from DHA via 14-LOX): macrophage-specific; promote tissue regeneration; least studied of the triad.
+
+GAPS IN CURRENT LITERATURE:
+1. Most SPM research uses supraphysiological concentrations not achievable clinically.
+2. SPM receptor polymorphisms across human populations are understudied.
+3. The interaction between SPM pathways and the endocannabinoid system is unexplored.
+4. Biomarker development for clinical SPM measurement lags significantly behind mechanistic work.
+
+CONCLUSION:
+The SPM framework reframes neuroinflammation management from suppression to resolution. Simplex 2 will apply this framework specifically to postoperative delirium, where we hypothesize that perioperative SPM depletion is a primary driver of cognitive dysfunction.

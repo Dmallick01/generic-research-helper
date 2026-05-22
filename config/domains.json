@@ -1,0 +1,37 @@
+{
+  "defaultContext": "Research domain: [Describe your field, core hypotheses, and scope boundaries here.]\n\nCore pillars:\n1. Primary theoretical framework\n2. Key mechanisms or variables\n3. Open questions and constraints\n\nLimitation: State known confounds and what this project will not address.",
+  "protocols": {
+    "1": {
+      "name": "Literature Review",
+      "q": "systematic review meta-analysis primary sources",
+      "desc": "Map the evidence landscape: seminal papers, consensus findings, and citation clusters for the research domain."
+    },
+    "2": {
+      "name": "Mechanism Mapping",
+      "q": "mechanistic pathways causal model biological theory",
+      "desc": "Extract and diagram causal mechanisms, pathways, and theoretical constructs from primary literature."
+    },
+    "3": {
+      "name": "Gap Analysis",
+      "q": "research gaps unanswered questions experimental design",
+      "desc": "Identify white space, contradictory findings, and highest-priority experimental questions."
+    },
+    "4": {
+      "name": "Cross-Domain Synthesis",
+      "q": "interdisciplinary synthesis bridging frameworks",
+      "desc": "Connect findings across subfields and propose integrative models or bridges between domains."
+    },
+    "5": {
+      "name": "Grand Synthesis",
+      "q": "integrated framework review conceptual model",
+      "desc": "Produce a unified synthesis: scope, evidence matrix, open questions, and a publishable research agenda."
+    }
+  },
+  "gates": [
+    { "label": "RELEVANCE", "q": "Is all evidence directly relevant to the core logic tree?" },
+    { "label": "NOVELTY", "q": "Does this frame provide orthogonal or novel vectors of thought?" },
+    { "label": "SCOPE", "q": "Is boundary leakage to adjacent topics prevented?" },
+    { "label": "SOURCES", "q": "Can citations be verified against primary literature databases?" },
+    { "label": "LIMITS", "q": "Are confounds and limitations fully enumerated?" }
+  ]
+}
