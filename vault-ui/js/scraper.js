@@ -31,7 +31,7 @@ async function synthesizeScraped() {
     ).join('\n');
 
     const prompt =
-`You are a rigorous clinical research synthesizer operating on verified PubMed-indexed literature.
+`You are a rigorous research synthesizer operating on verified PubMed-indexed literature.
 
 RESEARCH DOMAIN: ${tank.desc || ''}
 
