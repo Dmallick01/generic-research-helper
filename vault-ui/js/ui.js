@@ -15,17 +15,17 @@ function showTab(id) {
 }
 function showTabById(id) { showTab(id); }
 
-// ─── TANK SELECTION ────────────────────────────────────────────────────────
-function selTank(n) {
-    if(typeof window.selSimp !== 'undefined') window.selSimp = n;
+// ─── PROTOCOL SELECTION ────────────────────────────────────────────────────
+function selProtocol(n) {
+    window.selProtocol = n;
     document.querySelectorAll('#tab-pipeline .spill[data-s]').forEach(b => b.classList.toggle('active', parseInt(b.dataset.s) === n));
     if(document.getElementById('scrapeQuery') && TANKS[n]) {
         document.getElementById('scrapeQuery').value = TANKS[n].q;
     }
 }
 
-function selScrapeTank(n) {
-    window.selScrapeSimp = n;
+function selScrapeProtocol(n) {
+    window.selScrapeProtocol = n;
     document.querySelectorAll('#tab-scraper .spill[data-ss]').forEach(b => b.classList.toggle('active', parseInt(b.dataset.ss) === n));
     autoQuery();
     // Populate query preview if search_engine is loaded
@@ -40,8 +40,8 @@ function selScrapeTank(n) {
 
 function autoQuery() {
     const el = document.getElementById('scrapeQuery');
-    if (el && typeof window.selScrapeSimp !== 'undefined' && TANKS[window.selScrapeSimp]) {
-        el.value = TANKS[window.selScrapeSimp].q;
+    if (el && typeof window.selScrapeProtocol !== 'undefined' && TANKS[window.selScrapeProtocol]) {
+        el.value = TANKS[window.selScrapeProtocol].q;
     }
 }
 

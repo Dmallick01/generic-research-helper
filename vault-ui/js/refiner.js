@@ -214,7 +214,7 @@ function fmtCiteTag(p) {
     <div class="opanel" data-vid="${vid}" data-title="Tank${tankId}_Refiner">
       <div class="opanel-hdr" style="background:rgba(80,255,120,0.07);">
         <span class="badge" style="background:#22cc66;color:#000;">🔍 RESEARCH REFINER</span>
-        <span class="opanel-title">Tank ${tankId}: ${esc(tank.name || '')} — Query-Anchored Synthesis</span>
+        <span class="opanel-title">Protocol ${tankId}: ${esc(tank.name || '')} — Query-Anchored Synthesis</span>
       </div>
 
       <!-- Summary bar -->
@@ -255,7 +255,7 @@ function exportRefinerMD(tankId, lines) {
     const tank = typeof TANKS !== 'undefined' ? TANKS[tankId] : {};
     const papers = window.lastSearchResults || [];
     
-    let md = `# Research Synthesis Refiner — Tank ${tankId}: ${tank.name || ''}\n`;
+    let md = `# Research Synthesis Refiner — Protocol ${tankId}: ${tank.name || ''}\n`;
     md += `*Generated: ${new Date().toLocaleString()} | Query-Anchored NLP Engine*\n\n`;
     md += `> [!NOTE]\n`;
     md += `> This document contains a high-fidelity synthesis of ${papers.length} source papers, including query-specific bullet points and full source abstracts.\n\n`;
@@ -274,7 +274,7 @@ function exportRefinerMD(tankId, lines) {
     const blob = new Blob([md], { type: 'text/markdown' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `Tank_${tankId}_DeepRefiner_${new Date().toISOString().slice(0,10)}.md`;
+    a.download = `Protocol_${tankId}_DeepRefiner_${new Date().toISOString().slice(0,10)}.md`;
     a.click();
 }
 

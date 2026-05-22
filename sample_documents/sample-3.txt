@@ -1,0 +1,18 @@
+TITLE: Framework Demo 3 — Gap Analysis Worksheet
+
+ABSTRACT
+Shows how gap-analysis protocol outputs are chunked for vector search.
+
+INTRODUCTION
+Gap analysis contrasts consensus claims against contradictory studies and missing data types.
+
+GAPS
+1. Under-powered replication studies
+2. Missing pre-registered analysis plans
+3. Limited geographic diversity in cohorts
+
+DISCUSSION
+Regulator checkpoint REGULATOR should flag scope leakage when gaps drift into unrelated subfields.
+
+CONCLUSION
+Configure your own open questions in the vault context payload before running BASE → FINAL.

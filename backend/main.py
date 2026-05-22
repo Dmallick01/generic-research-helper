@@ -54,18 +54,15 @@ class IngestResponse(BaseModel):
 # ── Chunking ─────────────────────────────────────────────────────────────────
 
 SECTION_HEADERS = [
-    "ABSTRACT", "INTRODUCTION", "MECHANISMS", "METHODS", "RESULTS",
-    "DISCUSSION", "CONCLUSION", "GAPS", "SPM TRIAD", "CLINICAL CORRELATES",
-    "PROPOSED MECHANISM", "MATHEMATICAL FRAMEWORK", "SYNTHESIS",
-    "UNIFIED MECHANISTIC MODEL", "PROPOSED CLINICAL PROTOCOL",
-    "CRITICAL EXPERIMENTAL GAPS", "CROSS-SERIES CONNECTIONS",
-    "ACETAMINOPHEN MECHANISMS", "SPM DEPLETION HYPOTHESIS",
-    "LOGARITHMIC AMPLIFICATION", "OMEGA-3 LOADING", "ASPIRIN CO-TREATMENT",
-    "DESCENDING INHIBITION", "CONNECTION TO SIMPLEX",
+    "ABSTRACT", "INTRODUCTION", "BACKGROUND", "MECHANISMS", "METHODS",
+    "RESULTS", "DISCUSSION", "CONCLUSION", "GAPS", "SYNTHESIS",
+    "PROPOSED MECHANISM", "MATHEMATICAL FRAMEWORK", "LIMITATIONS",
+    "FUTURE WORK", "PROPOSED RESEARCH AGENDA", "EVIDENCE MATRIX",
+    "CROSS-DOMAIN SYNTHESIS", "OPEN QUESTIONS",
 ]
 
 def extract_paper_id(filename: str) -> str:
-    """Extract 'simplex1' from 'simplex1.txt'"""
+    """Stable id from filename stem, e.g. sample-1.txt → sample-1"""
     return Path(filename).stem.lower()
 
 def extract_title(text: str) -> str:
@@ -80,7 +77,7 @@ def chunk_by_section(text: str, paper_id: str, filename: str) -> list[dict]:
     Each chunk carries metadata: paper_id, section, title, paper_number.
     """
     title = extract_title(text)
-    paper_number = re.search(r'simplex(\d)', paper_id)
+    paper_number = re.search(r'(?:sample-|doc-|paper-)?(\d+)', paper_id)
     paper_num = int(paper_number.group(1)) if paper_number else 0
 
     # Build section split pattern from known headers

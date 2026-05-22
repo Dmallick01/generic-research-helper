@@ -1,0 +1,16 @@
+TITLE: Framework Demo 4 — Cross-Domain Synthesis Stub
+
+ABSTRACT
+Demonstrates cross-protocol linking in the evidence matrix (connections column).
+
+SYNTHESIS
+Bridge findings across protocols P1–P5 using shared vocabulary in domains.json.
+
+METHODS
+Cross-protocol keyword overlap is computed offline in the search engine when multiple protocols are active.
+
+DISCUSSION
+OpenCLAW Research extends this DAG with local Ollama models; see the companion repository.
+
+CONCLUSION
+This stub contains no user research — only integration examples.

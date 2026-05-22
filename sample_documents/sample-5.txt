@@ -1,0 +1,17 @@
+TITLE: Framework Demo 5 — Grand Synthesis Outline
+
+ABSTRACT
+Final-protocol placeholder for unified reports exported to the vault.
+
+SYNTHESIS
+1. Scope recap
+2. Evidence matrix summary
+3. Mechanism diagram
+4. Prioritized experiments
+5. Limitations and confounds
+
+PROPOSED RESEARCH AGENDA
+Replace each bullet with your publishable agenda. The framework does not ship hypotheses.
+
+CONCLUSION
+Export markdown from the Vault tab or hand off JSON to OpenCLAW for local LLM completion.

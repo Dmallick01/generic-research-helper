@@ -12,7 +12,7 @@ async function runPipeline() {
     window.running = true;
     const ctx = document.getElementById('ctxInput').value.trim();
     // Default fallback to 1 if no simple selected
-    const sn = typeof window.selSimp !== 'undefined' ? window.selSimp : 1;
+    const sn = typeof window.selProtocol !== 'undefined' ? window.selProtocol : 1;
     const sd = TANKS[sn].desc;
     const sec = 'outSection';
     
@@ -39,7 +39,7 @@ async function runPipeline() {
         addThinking(sec, 'th-base', '[NODE: BASE] Formulating architecture array for Protocol ' + sn + '...');
         outs.base = await claude(PROMPTS.base(ctx, sn, sd), 1200);
         rmThinking('th-base');
-        addPanel(sec, 'BASE', 'Architecture Shell — Tank Protocol ' + sn, outs.base, 'badge-base');
+        addPanel(sec, 'BASE', 'Architecture Shell — Protocol ' + sn, outs.base, 'badge-base');
         setAgent('base', 'done'); setProgress(15);
 
         // R1
@@ -47,7 +47,7 @@ async function runPipeline() {
         addThinking(sec, 'th-r1', '[NODE: R1] Aggregating literature primitives...');
         outs.r1 = await claude(PROMPTS.r1(ctx, sn, outs.base), 1500);
         rmThinking('th-r1');
-        addPanel(sec, 'R1', 'Synthesis Vectors — Tank Protocol ' + sn, outs.r1, 'badge-r1', { vecBadge: true });
+        addPanel(sec, 'R1', 'Synthesis Vectors — Protocol ' + sn, outs.r1, 'badge-r1', { vecBadge: true });
         setAgent('r1', 'done'); setProgress(30);
 
         // REG 1
@@ -69,7 +69,7 @@ async function runPipeline() {
         addThinking(sec, 'th-r2', '[NODE: R2] Generating adversarial modifiers...');
         outs.r2 = await claude(PROMPTS.r2(ctx, sn, outs.base, outs.r1), 1500);
         rmThinking('th-r2');
-        addPanel(sec, 'R2', 'Annotated Extrapolation — Tank Protocol ' + sn, outs.r2, 'badge-r2', { vecBadge: true });
+        addPanel(sec, 'R2', 'Annotated Extrapolation — Protocol ' + sn, outs.r2, 'badge-r2', { vecBadge: true });
         setAgent('r2', 'done'); setProgress(60);
 
         // REG 2
@@ -91,7 +91,7 @@ async function runPipeline() {
         addThinking(sec, 'th-critic', '[NODE: CRITIC] Triaging structural dependencies...');
         outs.critic = await claude(PROMPTS.critic(ctx, sn, outs.base, outs.r1, outs.r2, outs.reg1 + '\\n\\n' + outs.reg2), 1200);
         rmThinking('th-critic');
-        addPanel(sec, 'CRITIC', 'Triage Report — Tank Protocol ' + sn, outs.critic, 'badge-critic');
+        addPanel(sec, 'CRITIC', 'Triage Report — Protocol ' + sn, outs.critic, 'badge-critic');
         setAgent('critic', 'done'); setProgress(85);
 
         // FINAL
@@ -99,7 +99,7 @@ async function runPipeline() {
         addThinking(sec, 'th-final', '[NODE: FINAL] Compiling apex manuscript matrix...');
         outs.final = await claude(PROMPTS.final(ctx, sn, outs.base, outs.r1, outs.r2, outs.reg1 + '\\n\\n' + outs.reg2, outs.critic), 2000);
         rmThinking('th-final');
-        addPanel(sec, 'FINAL', 'Apex Node Output — Tank Protocol ' + sn, outs.final, 'badge-final');
+        addPanel(sec, 'FINAL', 'Apex Node Output — Protocol ' + sn, outs.final, 'badge-final');
         setAgent('final', 'done'); setProgress(100);
         
         globalStatus.textContent = 'PROTOCOL COMPLETE ✓';
@@ -142,7 +142,7 @@ async function runContinuation() {
     }
     
     const fromAgent = document.getElementById('contFromAgent').value;
-    const sn = parseInt(document.getElementById('contSimplex').value);
+    const sn = parseInt(document.getElementById('contProtocol').value, 10);
     const ctx = document.getElementById('ctxInput').value.trim();
     const sd = TANKS[sn].desc;
     const sec = 'contSection';
@@ -174,7 +174,7 @@ async function runContinuation() {
             const out = await claude(prompt, 1500);
             outs[agent] = out;
             rmThinking('th-cont-' + agent);
-            addPanel(sec, agent.toUpperCase(), '[Hydrated] ' + agent.toUpperCase() + ' — Tank Protocol ' + sn, out, 'badge-' + agent);
+            addPanel(sec, agent.toUpperCase(), '[Hydrated] ' + agent.toUpperCase() + ' — Protocol ' + sn, out, 'badge-' + agent);
         }
     } catch (e) {
         const s = document.getElementById(sec);

@@ -1,0 +1,19 @@
+TITLE: Framework Demo 1 — Literature Review Methodology
+
+ABSTRACT
+This document is a placeholder corpus for the Research Helper RAG pipeline. It demonstrates section-aware chunking and semantic retrieval without domain-specific claims.
+
+INTRODUCTION
+Systematic reviews require explicit inclusion criteria, search strategy documentation, and reproducible screening workflows. This framework expects you to replace this text with your own primary sources.
+
+METHODS
+Search across PubMed, Semantic Scholar, and OpenAlex-style endpoints. Deduplicate by DOI and PMID. Score relevance using protocol keywords from config/domains.json.
+
+RESULTS
+Example finding: structured evidence tables improve synthesis quality when paired with regulator checkpoints.
+
+DISCUSSION
+The pipeline is domain-agnostic. Configure protocols, gates, and context in JSON rather than editing core code.
+
+CONCLUSION
+Use this file only as a wiring test. Delete or replace all sample_documents before publishing your own research.

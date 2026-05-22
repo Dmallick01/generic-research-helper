@@ -23,7 +23,7 @@ async function synthesizeScraped() {
     synthLabel.textContent = 'Synthesizing textual output...';
 
     // Build context payload from evidence table data
-    const tankId = window.selScrapeSimp || 1;
+    const tankId = window.selScrapeProtocol || 1;
     const tank   = TANKS[tankId] || {};
 
     const context = lastSearchResults.map((p, i) =>
@@ -64,7 +64,7 @@ STRICT RULE: Only draw on the paper titles listed above. Never cite authors or f
             <div class="opanel" data-vid="${vid}" data-content="">
                <div class="opanel-hdr">
                  <span class="badge" style="background:#00ffa6;color:#000;">🧠 RESEARCH SYNTHESIS</span>
-                 <span class="opanel-title">Tank ${tankId}: ${esc(tank.name || '')} — Textual Output</span>
+                 <span class="opanel-title">Protocol ${tankId}: ${esc(tank.name || '')} — Textual Output</span>
                </div>
                <div class="opanel-body" id="synthBodyBlock" style="font-size:14px;line-height:1.8;"></div>
                <div class="opanel-actions">
@@ -78,7 +78,7 @@ STRICT RULE: Only draw on the paper titles listed above. Never cite authors or f
         const body = document.getElementById('synthBodyBlock');
         body.innerHTML = '<pre style="white-space:pre-wrap;font-family:var(--sans);font-size:13px;line-height:1.8;">' + esc(result) + '</pre>';
         outSection.querySelector('.opanel').dataset.content = result;
-        outSection.querySelector('.opanel').dataset.title = `Tank${tankId}_Synthesis`;
+        outSection.querySelector('.opanel').dataset.title = `Protocol${tankId}_Synthesis`;
 
         // Cache to vault
         vault.push({

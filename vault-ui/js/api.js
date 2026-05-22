@@ -3,7 +3,7 @@
 window.API_KEY = '';
 
 function getApiKey() {
-    return localStorage.getItem('tank_anthropic_key') || window.API_KEY;
+    return localStorage.getItem('research_anthropic_key') || window.API_KEY;
 }
 
 function checkKey() {

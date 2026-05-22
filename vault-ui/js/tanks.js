@@ -29,10 +29,10 @@ function applyDomainConfigToUI() {
     ctx.value = DEFAULT_CONTEXT;
   }
 
-  renderProtocolPills('#tab-pipeline .simplex-pills[data-role="protocols"]', 'selTank');
-  renderProtocolPills('#tab-scraper .simplex-pills[data-role="scrape-protocols"]', 'selScrapeTank', 'ss');
+  renderProtocolPills('#tab-pipeline .protocol-pills[data-role="protocols"]', 'selProtocol');
+  renderProtocolPills('#tab-scraper .protocol-pills[data-role="scrape-protocols"]', 'selScrapeProtocol', 'ss');
 
-  const contSelect = document.getElementById('contSimplex');
+  const contSelect = document.getElementById('contProtocol');
   if (contSelect) {
     contSelect.innerHTML = Object.entries(TANKS)
       .map(([id, t]) => `<option value="${id}">${t.name}</option>`)
@@ -49,7 +49,7 @@ function renderProtocolPills(selector, clickFn, dataAttr = 's') {
       `<button class="spill${i === 0 ? ' active' : ''}" data-${dataAttr}="${id}" onclick="${clickFn}(${id})"><span>P${id}</span><strong>${escHtml(t.name)}</strong></button>`
     )
     .join('');
-  if (entries.length && typeof window.selSimp !== 'undefined') window.selSimp = parseInt(entries[0][0], 10);
+  if (entries.length) window.selProtocol = parseInt(entries[0][0], 10);
 }
 
 function escHtml(s) {

@@ -2,186 +2,53 @@
 console.log('Search Engine v9 Loaded');
 // No API Key Required. Uses only PubMed E-Utilities.
 
-// ─── DEEP RESEARCH QUERY BANKS (per Tank — unique endpoint-focused) ───────────
+// ─── Protocol-driven queries (from config/domains.json via tanks.js) ─────────
 
-const TANK_QUERIES = {
-    1: [ // ACETAMINOPHEN
-        'acetaminophen opioid-sparing delirium prevention postoperative adults',
-        'paracetamol delirium incidence randomized controlled trial ICU',
-        'acetaminophen COX-3 central nervous system mechanism analgesia',
-        'non-opioid analgesic postoperative cognitive dysfunction prevention review',
-        'opioid analgesic delirium risk elderly perioperative systematic review',
-        'intravenous acetaminophen opioid consumption reduction surgery',
-        'HPA hypothalamic pituitary adrenal axis opioid stress response surgery',
-        'acetaminophen serotonin cannabinoid endocannabinoid pain mechanism',
-        'acetaminophen neuroinflammation microglial activation cytokine',
-        'scheduled acetaminophen versus PRN opioid delirium outcomes',
-        'multimodal analgesia delirium prevention perioperative protocol',
-        'acetaminophen anti-inflammatory IL-6 TNF postoperative',
-        'opioid elimination delirium risk reduction clinical evidence',
-        'acetaminophen NMDA glutamate spinal cord pain modulation',
-        'morphine equivalent dose delirium dose-response perioperative',
-        'COX-2 inhibitor opioid sparing surgery postoperative delirium',
-        'acetaminophen safety hepatotoxicity ICU critically ill monitoring',
-        'non-pharmacological delirium prevention ABCDEF bundle analgesic',
-    ],
-    2: [ // PAIN THEORY
-        'Weber Fechner law pain perception psychophysics clinical review',
-        'Stevens power law pain thermal nociception quantification',
-        'Emery Brown EEG consciousness anesthesia nociception quantification',
-        'EEG gamma band 60-100Hz pain processing somatosensory cortex',
-        'heart rate variability frequency domain nociception monitoring perioperative',
-        'skin conductance galvanic response nociception autonomic perioperative',
-        'nociception level index NOL monitor clinical validation',
-        'algesia nociception index ANI heart rate variability validation',
-        'closed loop analgesia automated drug delivery feedback control',
-        'pain perception logarithmic model individual variability calculation',
-        'pupillometry pupillary dilation reflex pain ICU assessment',
-        'multimodal nociception monitoring composite index perioperative',
-        'Bayesian state space estimation EEG pain analgesia',
-        'individual variability pain threshold psychophysical modeling',
-        'ICU pain assessment non-verbal CPOT behavioral scale validation',
-        'EEG alpha suppression pain nociceptive response anesthesia',
-        'prediction error Bayesian updating pain expectation modulation',
-        'cognitive modulation pain prefrontal PAG descending control fMRI',
-        'psychophysical pain model transition VAS intensity nonlinear',
-        'neural correlates pain perception cortical oscillations gamma beta',
-    ],
-    3: [ // SPMs + POD
-        'resolvins protectins maresins neuroinflammation review Serhan',
-        'specialized pro-resolving mediators surgery postoperative outcomes',
-        'DHA EPA lipid mediators inflammation resolution biology',
-        'neutrophil apoptosis efferocytosis resolution Serhan lipoxin',
-        'omega-3 fatty acids surgical inflammation perioperative',
-        'postoperative delirium neuroinflammation mechanism review',
-        'surgical trauma systemic inflammation brain microglial activation',
-        'prostaglandin leukotriene class switching resolution lipid mediator',
-        'resolvin D1 D2 neuroinflammation animal model cytokine',
-        'lipid mediator resolution failure chronic inflammation',
-        'postoperative delirium biomarker serum cerebrospinal fluid',
-        'neuroinflammation blood brain barrier surgery cytokine',
-        'omega-3 supplementation perioperative inflammation randomized trial',
-        'arachidonic acid cascade COX LOX eicosanoid perioperative',
-        'maresins protectin D1 macrophage microglia neuroinflammation',
-        'SPM biosynthesis DHA 12-lipoxygenase 15-lipoxygenase pathway',
-        'resolvin E1 E2 EPA derived neutrophil inflammation resolution',
-        'postoperative neuroinflammation cognitive decline POCD review',
-        'lipoxin A4 aspirin-triggered anti-inflammatory mechanism',
-        'SPM receptor GPR32 ALX FPR2 signaling anti-inflammatory',
-    ],
-    4: [ // MANAGEMENT
-        'ABCDEF bundle delirium prevention ICU evidence based protocol',
-        'biomarker-guided analgesic management delirium ICU',
-        'S100beta GFAP biomarker delirium postoperative brain injury',
-        'eye tracking saccade delirium cognitive impairment',
-        'hemolytic protein haptoglobin delirium ICU neuroinflammation',
-        'CAM-ICU confusion assessment method validation critically ill',
-        'delirium assessment tool ICU ICDSC validation review',
-        'acetaminophen microdosing pain management optimization protocol',
-        'opioid-free anesthesia multimodal analgesic delirium outcomes',
-        'non-pharmacological delirium prevention mobilization light sleep',
-        'sleep deprivation ICU delirium incidence cohort study',
-        'circadian melatonin ramelteon ICU delirium prevention RCT',
-        'dexmedetomidine delirium prevention sedation ICU trial',
-        'haloperidol antipsychotic delirium treatment evidence review',
-        'delirium prediction model risk score preoperative elderly',
-        'neurocognitive monitoring EEG processed index delirium prevention',
-        'PROSPECT guideline multimodal analgesia surgery recommendation',
-        'IV versus oral acetaminophen pharmacokinetics clinical outcomes',
-        'ketamine opioid sparing perioperative delirium evidence',
-        'regional anesthesia opioid sparing delirium prevention surgery',
-    ],
-    5: [ // GRAND SYNTHESIS
-        'postoperative delirium pathophysiology unified review framework',
-        'neuroinflammation delirium perioperative integrated mechanism',
-        'perioperative delirium multi-factorial mechanism systematic review',
-        'delirium cognitive reserve brain vulnerability aging surgery',
-        'SPM opioid circadian gut integrated delirium model',
-        'neuroinflammation resolution failure clinical consequence review',
-        'delirium Alzheimer dementia neurodegeneration connection review',
-        'perioperative neurocognitive disorder POCD mechanisms prevention',
-        'geriatric surgery delirium frailty outcomes review',
-        'biomarker neuroinflammation delirium prediction serum',
-        'multimodal intervention delirium prevention meta-analysis',
-        'ICU delirium long term outcomes cognitive impairment survival',
-        'pain inflammation delirium connection mechanism review',
-        'gut microbiome circadian rhythm neuroinflammation convergence',
-        'precision medicine delirium prevention individual risk stratification',
-        'delirium preventable postoperative outcome population attributable',
-        'economic burden delirium ICU cost hospitalization',
-        'delirium subsyndromal prodrome clinical significance review',
-    ],
-    6: [ // GUT-BRAIN
-        'gut microbiome ICU delirium dysbiosis prospective study',
-        'gut-brain axis neuroinflammation perioperative review',
-        'LPS lipopolysaccharide TLR4 neuroinflammation blood brain barrier',
-        'microbiome dysbiosis surgery antibiotics postoperative complications',
-        'intestinal barrier permeability I-FABP zonulin surgery',
-        'gut bacteria Bacteroidetes Firmicutes ratio ICU critically ill',
-        'butyrate short chain fatty acid microglia anti-inflammatory',
-        'probiotics synbiotics ICU delirium prevention clinical trial',
-        'PAMPs pathogen associated molecular patterns systemic inflammation BBB',
-        'vagal nerve stimulation anti-inflammatory gut brain mechanism',
-        'perioperative antibiotic gut flora delirium connection',
-        'microbiome brain behavior cognition review preclinical clinical',
-        'gut bacterial translocation systemic inflammation postoperative',
-        'bifidobacterium lactobacillus CNS behavior clinical study',
-        'fecal microbiota transplant neurological outcomes review',
-        'inflammatory bowel disease neuropsychiatric cognitive symptoms',
-        'NPO bowel prep surgery microbiome alteration outcomes',
-        'microbiome metabolomics tryptophan serotonin brain behavior',
-        'tryptophan kynurenine pathway neuroinflammation delirium',
-        'gut permeability claudin occludin tight junction brain function',
-    ],
-    7: [ // CIRCADIAN
-        'circadian rhythm disruption ICU delirium incidence cohort',
-        'melatonin ICU delirium prevention randomized controlled trial',
-        'ramelteon circadian delirium prevention critical care RCT',
-        'microglial priming neuroinflammation exaggerated response aging',
-        'sleep disruption ICU slow wave sleep delirium polysomnography',
-        'amyloid tau subclinical burden surgery delirium cognitive',
-        'APOE4 genotype delirium risk postoperative cognitive',
-        'melatonin anti-inflammatory MT1 MT2 receptor mechanism',
-        'circadian clock gene Per1 Per2 BMAL1 immune regulation',
-        'light therapy chronotherapy ICU hospital delirium protocol',
-        'suprachiasmatic nucleus SCN circadian entrainment immune',
-        'microglial morphology reset sleep NREM wave depletion',
-        'cortisol circadian rhythm disruption surgery ICU',
-        'suvorexant orexin antagonist delirium sleep promotion ICU',
-        'ICU noise light intervention circadian delirium protocol',
-        'aging microglia phenotype M1 M2 primed sensitized review',
-        'neuroinflammation sleep-wake cycle bidirectional review',
-        'melatonin neuroprotection oxidative stress mechanism review',
-        'chronobiology pharmacology timing drug administration outcomes',
-        'sleep architecture REM NREM immune function review',
-    ],
-};
+const QUERY_SUFFIXES = [
+    'systematic review',
+    'meta-analysis',
+    'randomized controlled trial',
+    'longitudinal study',
+    'mechanism pathway',
+    'open questions',
+    'limitations confounds',
+    'replication study',
+    'benchmark comparison',
+    'survey paper',
+];
 
-// ─── KEYWORD BANKS for eligibility matching ───────────────────────────────────
+const STOPWORDS = new Set([
+    'with', 'from', 'that', 'this', 'your', 'research', 'primary', 'sources',
+    'theory', 'model', 'review', 'analysis', 'design', 'experimental',
+]);
 
-const TANK_KEYWORDS = {
-    1: ['acetaminophen', 'paracetamol', 'opioid', 'delirium', 'cox', 'analgesia', 'pain', 'neuroinflammation', 'hpa', 'serotonin', 'multimodal'],
-    2: ['pain', 'nociception', 'eeg', 'heart rate variability', 'gamma', 'weber', 'fechner', 'stevens', 'bayesian', 'closed loop', 'autonomic', 'psychophysic'],
-    3: ['resolvin', 'protectin', 'maresin', 'lipoxin', 'spm', 'pro-resolving', 'serhan', 'dha', 'epa', 'neutrophil', 'efferocytosis', 'lipid mediator'],
-    4: ['delirium', 'cam-icu', 'abcdef', 'biomarker', 's100', 'gfap', 'eye tracking', 'microdosing', 'protocol', 'management', 'bundle', 'ramelteon'],
-    5: ['delirium', 'perioperative', 'neuroinflammation', 'cognitive', 'framework', 'synthesis', 'pathophysiology', 'prevention', 'unified'],
-    6: ['microbiome', 'gut-brain', 'lps', 'dysbiosis', 'blood brain barrier', 'pamp', 'tlr4', 'scfa', 'butyrate', 'zonulin', 'intestinal', 'vagal'],
-    7: ['circadian', 'melatonin', 'microglial', 'priming', 'amyloid', 'tau', 'sleep', 'ramelteon', 'suprachiasmatic', 'apoe', 'slow wave'],
-};
+function protocolMeta(protocolId) {
+    return (typeof TANKS !== 'undefined' && TANKS[protocolId]) ? TANKS[protocolId] : null;
+}
 
-const CROSS_TANK_KEYWORDS = {
-    1: ['acetaminophen', 'paracetamol', 'opioid sparing', 'cox', 'multimodal'],
-    2: ['nociception', 'eeg', 'weber fechner', 'heart rate variability', 'closed loop', 'psychophysic'],
-    3: ['resolvin', 'protectin', 'maresin', 'spm', 'pro-resolving', 'lipid mediator', 'serhan'],
-    4: ['abcdef', 'cam-icu', 'biomarker', 'management protocol', 'bundle', 'eye tracking'],
-    5: ['unified', 'grand synthesis', 'integrated model'],
-    6: ['microbiome', 'gut-brain', 'lps', 'dysbiosis', 'tlr4', 'intestinal barrier'],
-    7: ['circadian', 'melatonin', 'microglial priming', 'slow wave sleep', 'amyloid'],
-};
+function protocolKeywords(protocolId) {
+    const p = protocolMeta(protocolId);
+    if (!p) return [];
+    const blob = `${p.name} ${p.q} ${p.desc || ''}`.toLowerCase();
+    const words = blob.match(/[a-z][a-z0-9-]{3,}/g) || [];
+    return [...new Set(words.filter(w => !STOPWORDS.has(w)))].slice(0, 12);
+}
+
+function buildProtocolQueries(protocolId) {
+    const p = protocolMeta(protocolId);
+    if (!p) return [`research topic ${protocolId}`];
+    if (Array.isArray(p.queryVariants) && p.queryVariants.length) {
+        return [...new Set(p.queryVariants)].slice(0, 18);
+    }
+    const base = (p.q || p.name || '').trim();
+    const variants = [base];
+    QUERY_SUFFIXES.forEach(s => variants.push(`${base} ${s}`));
+    return [...new Set(variants.filter(Boolean))].slice(0, 18);
+}
 
 function generateEligibilityStatement(title, abstract, tankId) {
     const combined = (title + ' ' + abstract).toLowerCase();
-    const keywords = TANK_KEYWORDS[tankId] || [];
+    const keywords = protocolKeywords(tankId);
     const matched = keywords.filter(kw => combined.includes(kw));
     if (matched.length === 0) return '⚠️ Tangential — manual review required';
     const score = matched.length >= 4 ? '🟢 HIGH' : matched.length >= 2 ? '🟡 MEDIUM' : '🟠 LOW';
@@ -191,9 +58,11 @@ function generateEligibilityStatement(title, abstract, tankId) {
 function detectCrossTankConnections(title, abstract, currentTank) {
     const text = (title + ' ' + abstract).toLowerCase();
     const connections = [];
-    for (const [tankId, kws] of Object.entries(CROSS_TANK_KEYWORDS)) {
-        if (parseInt(tankId) === currentTank) continue;
-        if (kws.some(kw => text.includes(kw))) connections.push(`T${tankId}`);
+    if (typeof TANKS === 'undefined') return '—';
+    for (const [protocolId] of Object.entries(TANKS)) {
+        if (parseInt(protocolId, 10) === parseInt(currentTank, 10)) continue;
+        const kws = protocolKeywords(protocolId);
+        if (kws.some(kw => text.includes(kw))) connections.push(`P${protocolId}`);
     }
     return connections.length > 0 ? connections.join(', ') : '—';
 }
@@ -317,8 +186,8 @@ let lastSearchResults = [];
 let lastSearchTankId = null;
 
 async function runParallelSearch(tankId) {
-    console.log(`▶ Starting Sequential Research Engine for Tank ${tankId}...`);
-    const queries = TANK_QUERIES[tankId] || [];
+    console.log(`▶ Starting Sequential Research Engine for Protocol ${tankId}...`);
+    const queries = buildProtocolQueries(tankId);
     const container = document.getElementById('searchEngineOutput');
     const runBtn = document.getElementById('searchRunBtn');
     const runSpin = document.getElementById('searchRunSpin');
@@ -336,7 +205,7 @@ async function runParallelSearch(tankId) {
 
     container.innerHTML = `
         <div id="searchProgress" style="background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:var(--mono);font-size:12px;">
-            <div style="color:var(--acc);margin-bottom:10px;">⟳ Sequential Query Engine Initializing — Tank ${tankId}</div>
+            <div style="color:var(--acc);margin-bottom:10px;">⟳ Sequential Query Engine Initializing — Protocol ${tankId}</div>
             <div id="progressLog" style="display:flex;flex-direction:column;gap:4px;max-height:250px;overflow-y:auto;"></div>
             <div style="margin-top:12px;">
                 <div style="color:var(--dim);margin-bottom:4px;">Progress: <span id="progressFrac">0/${queries.length}</span></div>
@@ -565,7 +434,7 @@ async function runParallelSearch(tankId) {
     container.innerHTML = `
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px;">
         <div style="font-family:var(--mono);font-size:13px;color:var(--acc);">
-            ⬡ Tank ${tankId} Evidence Matrix — <strong>${papers.length} papers</strong> | Click any row to expand abstract
+            ⬡ Protocol ${tankId} Evidence Matrix — <strong>${papers.length} papers</strong> | Click any row to expand abstract
         </div>
         <div style="display:flex;gap:8px;">
             <button class="btn btn-ghost btn-sm" onclick="expandAllAbstracts()">Expand All</button>
@@ -634,14 +503,14 @@ function exportEvidenceCSV(tankId) {
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `Tank_${tankId}_Evidence_${new Date().toISOString().slice(0, 10)}.csv`;
+    a.download = `Protocol_${tankId}_Evidence_${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
 }
 
 function exportEvidenceMD(tankId) {
     if (!lastSearchResults || lastSearchResults.length === 0) return;
     const tank = typeof TANKS !== 'undefined' ? TANKS[tankId] : {};
-    let md = `# Tank ${tankId} Evidence Matrix\n**${tank.name || ''}**\n*Generated: ${new Date().toLocaleString()}*\n\n---\n\n`;
+    let md = `# Protocol ${tankId} Evidence Matrix\n**${tank.name || ''}**\n*Generated: ${new Date().toLocaleString()}*\n\n---\n\n`;
     lastSearchResults.forEach((p, i) => {
         md += `## ${i + 1}. ${p.title}\n`;
         md += `**${p.authors}** · *${p.journal}* · ${p.year} · ${p.studyType}\n\n`;
@@ -653,12 +522,12 @@ function exportEvidenceMD(tankId) {
     const blob = new Blob([md], { type: 'text/markdown' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `Tank_${tankId}_Evidence_${new Date().toISOString().slice(0, 10)}.md`;
+    a.download = `Protocol_${tankId}_Evidence_${new Date().toISOString().slice(0, 10)}.md`;
     a.click();
 }
 
 // ─── QUERY PREVIEW (called from ui.js selScrapeTank) ─────────────────────────
 
 function generateQueryPermutations(tankId) {
-    return TANK_QUERIES[tankId] || [];
+    return buildProtocolQueries(tankId);
 }

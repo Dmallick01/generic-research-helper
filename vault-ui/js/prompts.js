@@ -2,7 +2,7 @@
 
 // ─── PROMPTS ──────────────────────────────────────────────────────────────────
 const PROMPTS = {
-    base: (ctx, sn, sd) => `You are the BASE AGENT. Define precise scope for Research Tank Protocol ${sn}: ${sd}
+    base: (ctx, sn, sd) => `You are the BASE AGENT. Define precise scope for Research Protocol ${sn}: ${sd}
 
 CONTEXT: ${ctx}
 
@@ -22,7 +22,7 @@ BASE SCOPE: ${base}
 
 Compile Research Payload:
 1. EVIDENCE MATRIX — Core studies, biomechanics, conclusions. Explicit citations mapping.
-2. MECHANISTIC TOPOLOGY — Pinpoint biological/theoretical pathways. Focus strictly on evidence-based consensus (e.g. if discussing acetaminophen, focus on opioid-sparing over hypothetical pathways).
+2. MECHANISTIC TOPOLOGY — Pinpoint causal pathways in the domain. Focus on evidence-backed mechanisms, not speculative shortcuts.
 3. CLINICAL DELTAS — Trials/observations shifting the paradigm.
 4. WHITE SPACE — What orthogonal novelty does this synthesis provide?
 5. VECTOR LINKS — Bridges to parallel nodes/protocols.
@@ -39,7 +39,7 @@ R1 PAYLOAD: ${r1}
 Inject:
 1. SUPPLEMENTAL VECTORS — Blind spots mapped by R1.
 2. QUALIFIERS — Nuance parameters where R1 over-indexed.
-3. BOUNDARY CONDITIONS — Realistic caveats (e.g., neutrophil persistence limits).
+3. BOUNDARY CONDITIONS — Realistic caveats and scope limits for the protocol.
 4. RED-TEAM OBJECTIONS — High-probability adversarial peer-review critiques.
 5. METRICS — Proposed filtration heuristics, metadata constraints.
 6. CROSS-DISCIPLINARY FUSIONS — Overlaps with cybernetics, systems biology, thermodynamics.`,

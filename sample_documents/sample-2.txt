@@ -1,0 +1,19 @@
+TITLE: Framework Demo 2 — Mechanism Mapping Template
+
+ABSTRACT
+Illustrates how mechanism-mapping protocols structure causal diagrams and pathway hypotheses.
+
+MECHANISMS
+Define nodes (entities), edges (causal direction), and uncertainty labels (supported / speculative / disputed).
+
+METHODS
+Extract mechanism statements from abstracts using TF-IDF clustering in the Scraper tab, then refine with optional LLM stages.
+
+RESULTS
+Placeholder: three candidate pathways with confidence tags low, medium, high.
+
+GAPS
+List experiments that would falsify each edge. Regulator gates should halt synthesis when gaps are unspecified.
+
+CONCLUSION
+Replace with your domain mechanisms. No proprietary research content ships with this repository.

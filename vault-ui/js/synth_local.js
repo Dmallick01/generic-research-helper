@@ -168,7 +168,7 @@ async function runLocalSynthesis() {
     const rctCount = papers.filter(p => p.studyType.includes('RCT')).length;
     const reviewCount = papers.filter(p => p.studyType.includes('Review') || p.studyType.includes('Meta')).length;
 
-    // Generate cross-tank dependency summary
+    // Generate cross-protocol dependency summary
     const crossLinks = {};
     papers.forEach(p => {
         p.connections.split(',').forEach(c => {
@@ -183,7 +183,7 @@ async function runLocalSynthesis() {
       <div class="opanel" data-vid="${vid}" data-title="Tank${tankId}_LocalSynthesis">
         <div class="opanel-hdr" style="background:rgba(100,180,255,0.08);">
           <span class="badge" style="background:#4488ff;color:#000;">⚡ STATISTICAL SYNTHESIS</span>
-          <span class="opanel-title">Tank ${tankId}: ${esc(tank.name || '')} — Zero-API Evidence Review</span>
+          <span class="opanel-title">Protocol ${tankId}: ${esc(tank.name || '')} — Zero-API Evidence Review</span>
         </div>
         <div class="opanel-body" style="padding:0;">
 
@@ -226,7 +226,7 @@ async function runLocalSynthesis() {
     // Cross-tank connection summary
     if (Object.keys(crossLinks).length > 0) {
         html += `<div>
-          <div style="font-size:13px;font-weight:700;color:var(--txt);margin-bottom:8px;">🔗 Cross-Tank Evidence Dependencies</div>
+          <div style="font-size:13px;font-weight:700;color:var(--txt);margin-bottom:8px;">🔗 Cross-Protocol Evidence Links</div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">`;
         Object.entries(crossLinks)
             .sort((a,b) => b[1] - a[1])
@@ -267,7 +267,7 @@ async function runLocalSynthesis() {
             • ${noAbstractCount} of ${papers.length} papers returned no abstract — manual review via PubMed links required.<br>
             ${rctCount < 3 ? '• <strong>Insufficient RCT evidence</strong> — current pool is primarily observational/review literature. Findings need validation via controlled trials.' : ''}
             ${recentCount < papers.length * 0.4 ? '• <strong>Publication recency gap</strong> — majority of evidence predates 2020. Recent developments may not be captured.' : ''}
-            ${Object.keys(crossLinks).length === 0 ? '• <strong>No cross-tank connections detected</strong> — this domain may be insufficiently connected to adjacent research pillars.' : ''}
+            ${Object.keys(crossLinks).length === 0 ? '• <strong>No cross-protocol connections detected</strong> — this domain may be insufficiently connected to adjacent research pillars.' : ''}
         </div>
     </div>`;
 
@@ -283,7 +283,7 @@ async function runLocalSynthesis() {
     outputDiv.innerHTML = html;
     // Store text content for vault/copy
     outputDiv.querySelector('.opanel').dataset.content =
-        `Tank ${tankId} Statistical Synthesis\n\nGenerated from ${papers.length} papers, ${sentences.length} sentences scored.\n\nSee full HTML report in interface.`;
+        `Protocol ${tankId} Statistical Synthesis\n\nGenerated from ${papers.length} papers, ${sentences.length} sentences scored.\n\nSee full HTML report in interface.`;
 
     outputDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
@@ -296,7 +296,7 @@ function exportLocalSynthMD(tankId) {
     if (!window.lastSearchResults) return;
     const papers = lastSearchResults;
     const tank = typeof TANKS !== 'undefined' ? TANKS[tankId] : {};
-    let md = `# Tank ${tankId} Statistical Synthesis\n**${tank.name || ''}**\n*Generated: ${new Date().toLocaleString()} | Zero-API TF-IDF Engine*\n\n`;
+    let md = `# Protocol ${tankId} Statistical Synthesis\n**${tank.name || ''}**\n*Generated: ${new Date().toLocaleString()} | Zero-API TF-IDF Engine*\n\n`;
     md += `## Evidence Pool Stats\n- Papers: ${papers.length}\n- RCTs: ${papers.filter(p=>p.studyType.includes('RCT')).length}\n- Reviews/Meta: ${papers.filter(p=>p.studyType.includes('Review')||p.studyType.includes('Meta')).length}\n- Post-2020: ${papers.filter(p=>p.year>='2020').length}\n\n`;
     md += `## Key Dependables\n`;
     papers.filter(p=>!p.abstract.includes('[No abstract')).slice(0,7).forEach(p => {
@@ -305,6 +305,6 @@ function exportLocalSynthMD(tankId) {
     const blob = new Blob([md], { type: 'text/markdown' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `Tank_${tankId}_LocalSynth_${new Date().toISOString().slice(0,10)}.md`;
+    a.download = `Protocol_${tankId}_LocalSynth_${new Date().toISOString().slice(0,10)}.md`;
     a.click();
 }
